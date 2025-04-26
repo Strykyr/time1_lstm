@@ -192,6 +192,14 @@ x_train, y_train = get_train_data(train_data)
 # gpu训练
 strategy = tf.distribute.MirroredStrategy()
 with strategy.scope():
+    if choose_model == 'RNN':    
+        model = Sequential()
+        model.add(SimpleRNN(20,return_sequences=True,input_shape=(100,2)))
+        model.add(Dropout(0.25))   
+        model.add(SimpleRNN(10))
+        model.add(Dropout(0.25))      
+        model.add(Dense(2))
+
     if choose_model == 'LSTM':    
         model = Sequential()
         model.add(LSTM(20,return_sequences=True,input_shape=(100,2)))
@@ -217,6 +225,7 @@ with strategy.scope():
         model.add(LSTM(10))
         model.add(Dropout(0.25))  
         model.add(Dense(2))
+
 
     elif choose_model=='CNN':
         model = Sequential()
