@@ -19,7 +19,7 @@ from keras.models import load_model
 tf.random.set_seed(42)
 random.seed(42)
 np.random.seed(42)
-tf.keras.utils.set_random_seed(42)
+#tf.keras.utils.set_random_seed(42)
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--choose_model', type=str, required=True, default='LSTM',

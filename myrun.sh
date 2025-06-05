@@ -18,7 +18,7 @@ fi
 
 # test
 # LSTM BiLSTM CNN+LSTM CNN
-for model_name in RNN
+for model_name in LSTM CNN+LSTM
 
 do
 python -u test.py \
